@@ -1,4 +1,17 @@
-const apples = 10;
-const oranges = 5;
 
-console.log(apples + oranges);
+const themeSelector = document.querySelector('select');
+
+function changeTheme() {
+    // check to see what the current value of our select is.
+    if (themeSelector.value === 'dark') {
+        document.body.classList.add('dark');
+        document.getElementById('Logo').src = 'byui-logo_white.png'; // correct path for white logo
+    } else {
+        document.body.classList.remove('dark');
+        document.getElementById('Logo').src = 'byui-logo_blue.webp'; // correct path for blue logo
+    }
+}
+
+// add an event listener to the themeSelector element here.
+// Use the changeTheme function as the event handler function.
+themeSelector.addEventListener('change', changeTheme);
