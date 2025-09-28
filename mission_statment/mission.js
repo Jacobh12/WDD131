@@ -11,7 +11,3 @@ function changeTheme() {
         document.getElementById('Logo').src = 'byui-logo_blue.webp'; // correct path for blue logo
     }
 }
-
-// add an event listener to the themeSelector element here.
-// Use the changeTheme function as the event handler function.
-themeSelector.addEventListener('change', changeTheme);
