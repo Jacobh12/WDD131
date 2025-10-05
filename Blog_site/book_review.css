@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+
+
+#nav-links {
+  grid-column: span 3;
+  justify-content: end;
+  justify-items: end;
+  padding: 1.5%;
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.404);
+  border-radius: 14px;
+}
+
+body {
+    font-size: 20px;
+    font-family: 'Mooli', Arial, Helvetica, sans-serif;
+    margin: 1rem auto;
+    border: 1px solid black;
+    background: rgb(204, 234, 252);
+    background: linear-gradient(90deg, rgba(204, 234, 252, 1) 0%, rgb(250, 222, 222) 100%);
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+    font-family: 'Mooli', Arial, Helvetica, sans-serif;
+    padding-bottom: 1%;
+}
+header {
+    text-align: center;
+    margin-bottom: 1rem;
+    background-color: rgb(146, 182, 255);
+    margin-top: auto;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 5px rgba(120, 120, 120, 0.3);
+    margin-bottom: 0.5rem;
+    font-family: 'Mooli', Arial, Helvetica, sans-serif;
+}
+
+button {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(73, 100, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+}
+
+
+
+section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+nav ul {
+  list-style-type: none;   
+  padding: 0;              
+  margin: 0;   
+}
+nav ul li {
+  display: inline;         
+  margin-right: 10px; 
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(64, 80, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+nav a {
+  color: white;        /* sets text color */
+  text-decoration: none; /* optional: removes underline */
+}
+nav a:hover {
+  color: lightgray;   /* lighter on hover */
+}
+nav a:active {
+  color: orange;      /* when clicked */
+}
+nav a:visited {
+  color: white;       /* keeps visited links white */
+}
+
+/* ----------------------- UNDER HEADER ----------------------------------------------------- */
+.articles-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; 
+  gap: 2rem;
+  margin: 2rem;
+  align-items: start;
+}
+
+.article-details {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  text-align: right;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+.article-content {
+  text-align: center;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.article-content img {
+  width: 200px;
+  height: auto;
+  margin: 1rem 0;
+  margin-inline: auto;
+  display:block;
+}
+
+
+.filter-box {
+  background-color: #f5f5f5;
+  border: 1px solid gray;
+  padding: 1rem;
+  border-radius: 8px;
+
+}
+.filter-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.filter-box label {
+  font-weight: bold;
+}
+.filter-box select {
+  padding: 0.3rem;
+  font-size: 1rem;
+}
+
+.skiptocontent a {
+    position: absolute;  
+    left: -9999px;      
+    top: auto;          
+    background: #000;   
+    color: #fff;
+    padding: 8px 16px;
+    z-index: 100;       
+}
+.skiptocontent a:focus {
+    left: 10px;         
+    top: 10px;          
+}
+
+
+.page-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 2rem; }
+.articles-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; }
+
+.container {
+  display: flex;          
+  height: 100vh;          
+}
+
+.box {
+  flex: 1;                
+  border: 1px solid black;
+  padding: 20px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgb(163, 163, 163);
+    color: white;
+    font-family: 'Mooli', Arial, Helvetica, sans-serif;
+}
+
+
+
+@media screen and (min-width: 700px){
+  #menu-Btn {
+    display: none;   
+  }
+   #nav-links { display: block; }
+}
+@media screen and (min-width: 1000px){
+  #menu-Btn {
+    display: none;   
+  }
+}
