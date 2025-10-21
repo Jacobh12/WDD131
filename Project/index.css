@@ -1,0 +1,123 @@
+
+
+#nav-links {
+  grid-column: span 3;
+  justify-content: end;
+  justify-items: end;
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(6px);
+
+  border-radius: 14px;
+}
+
+header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: 5px 20px;
+  
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    box-shadow: #ff4f1e 5px 4px 8px;
+    margin-bottom: 0px;
+  
+}
+
+h1 {
+ font-size: 150px;                   /* keep it huge */
+  line-height: 1;                     /* removes extra space above/below */
+  margin: 0;                        
+  background: linear-gradient(90deg, #ff3700, #1fddff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Bebas Neue', sans-serif;
+  padding-left: 10px;
+}
+
+
+
+body {
+  background: linear-gradient(135deg, #9f2000, #01a3c0);
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(255,255,255,.12);
+  backdrop-filter: blur(6px);
+    margin-top: auto;
+}
+
+main {  
+    /* display: flex; 
+    height: 80vh;
+    flex-wrap: wrap;
+    flex-direction: row; */
+}
+
+.shape_button {
+  background: rgba(34, 40, 46, 0.7);     /* dark glass background */
+  backdrop-filter: blur(6px);
+  border: 2px solid #47ffe9;             /* teal accent border */
+  color: #ffffff;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.shape_button:hover {
+  background: #4cafa3;                   /* teal on hover */
+  color: #000;                           /* contrast against teal */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+.shapes_container{
+  display: flex;              /* Enables side-by-side layout */
+  align-items: center;        /* Vertically aligns buttons and canvas */
+  justify-content: flex-start;/* Keeps content to the left */
+  height: 100vh;              /* Optional: make it fill the full page */
+  padding: 20px;
+  gap: 20px;  
+}
+
+.shape_buttons {
+   display: flex;
+  flex-direction: column;
+  flex: 0 0 10%;            /* takes up 10% of the page width */
+  height: 100vh;
+}
+
+
+.page2-button {
+    background: rgba(34, 40, 46, 0.7);     /* dark glass background */
+  backdrop-filter: blur(6px);
+  border: 2px solid #47ffe9;             /* teal accent border */
+  color: #ffffff;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  display: flex;
+}
+.no_blue {
+  color: #ffffff;
+  text-decoration: none;
+}
+#myCanvas {
+   width: 85%;
+  height: 100%;
+  border: 6px solid #000000;
+  background-color: #f5f3ed;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  margin: auto;
+}
+  
