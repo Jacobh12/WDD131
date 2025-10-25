@@ -34,6 +34,7 @@ h1 {
   -webkit-text-fill-color: transparent;
   font-family: 'Bebas Neue', sans-serif;
   padding-left: 10px;
+  letter-spacing: 25px;
 }
 
 
@@ -112,8 +113,8 @@ main {
   text-decoration: none;
 }
 #myCanvas {
-   width: 85%;
-  height: 100%;
+   width: 850px;
+  height: 600px;
   border: 6px solid #000000;
   background-color: #f5f3ed;
   border-radius: 6px;
@@ -121,3 +122,24 @@ main {
   margin: auto;
 }
   
+
+.clear {
+   background: rgba(62, 54, 32, 0.7);     /* dark glass background */
+  backdrop-filter: blur(6px);
+  border: 2px solid #ff6600;             /* teal accent border */
+  color: #ff6a25;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.clear:hover {
+  background: #b37325;                   /* teal on hover */
+  color: #000;                           /* contrast against teal */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
