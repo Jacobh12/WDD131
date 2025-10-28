@@ -21,76 +21,105 @@ function drawRandomLine() {
 
   // begin a new path
   ctx.beginPath();
-  ctx.moveTo(0, 0);              // start at top-left corner
-  ctx.lineTo(randomX, randomY);  // draw to random point
-  ctx.strokeStyle = "green";     // line color
-  ctx.lineWidth = 3;             // thickness
+  ctx.moveTo(0, 0);              
+  ctx.lineTo(randomX, randomY);  
+  ctx.strokeStyle = "yellow";     
+  ctx.lineWidth = 3;             
   ctx.stroke();
 }
 
 
-function draw(e) {
-    const cordinates= canvas.getBoundingClientRect()
-    const x= e.clientX - cordinates.left
-    const y=e.clientY - cordinates.top
-
-    console.log(e.clientY)
-    console.log(cordinates.top)
-    console.log(e.clientX)
-    console.log(cordinates.left)
+function getCanvasPos(e) {
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  return { x, y };
 }
 
 
-function drawRandomCircle() {
-  const maxX = c.width;
-  const maxY = c.height;
-
-  const centerX = Math.floor(Math.random() * maxX);
-  const centerY = Math.floor(Math.random() * maxY);
-  const radius = Math.floor(Math.random() * 50) + 10; // radius between 10 and 60
-
+function drawCircleAt(x, y, r = 40) {
   ctx.beginPath();
-  ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-  ctx.strokeStyle = "red";
-  ctx.lineWidth = 3;
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.strokeStyle = 'red';
+  ctx.lineWidth = 2;
+  ctx.shadowColor = '#000';
+  ctx.shadowBlur = 5;
+  ctx.shadowOffsetX = 3;
+  ctx.shadowOffsetY = 3;
   ctx.stroke();
 }
 
-
-function drawRandomSquare() {
-  const size = 100;
-  const randomX = Math.random() * (canvas.width - size);
-  const randomY = Math.random() * (canvas.height - size);
-
+function drawSquareAt(x, y, size = 80) {
   ctx.beginPath();
-  ctx.moveTo(randomX, randomY);
-  ctx.lineTo(randomX + size, randomY);
-  ctx.lineTo(randomX + size, randomY + size);
-  ctx.lineTo(randomX, randomY + size);
+  ctx.rect(x - size/2, y - size/2, size, size);
+  ctx.strokeStyle = 'black';
+  ctx.lineWidth = 2;
+  ctx.shadowColor = '#d88200ff';
+  ctx.shadowBlur = 5;
+  ctx.shadowOffsetX = 3;
+  ctx.shadowOffsetY = 3;
+  ctx.stroke();
+}
+
+function drawTriangleAt(x, y, size = 100) {
+  ctx.beginPath();
+  ctx.moveTo(x, y - size/2);                // top
+  ctx.lineTo(x - size/2, y + size/2);       // bottom-left
+  ctx.lineTo(x + size/2, y + size/2);       // bottom-right
   ctx.closePath();
-  ctx.strokeStyle = "black";
-  ctx.lineWidth = 3;
+  ctx.strokeStyle = 'blue';
+  ctx.lineWidth = 2;
+  ctx.shadowColor = '#000';
+  ctx.shadowBlur = 5;
+  ctx.shadowOffsetX = 3;
+  ctx.shadowOffsetY = 3;
   ctx.stroke();
 }
 
-function drawTriangle() {
-  const size = 100;
-  const randomX = Math.random() * (canvas.width - size);
-  const randomY = Math.random() * (canvas.height - size);
-
+function drawHexagonAt(x, y, r = 50) {
   ctx.beginPath();
-  ctx.moveTo(randomX + size / 2, randomY);               // top point
-  ctx.lineTo(randomX, randomY + size);                   // bottom left
-  ctx.lineTo(randomX + size, randomY + size);            // bottom right
+  for (let i = 0; i < 6; i++) {
+    const angle = (Math.PI / 3) * i - Math.PI / 6; // flat-top hex
+    const px = x + r * Math.cos(angle);
+    const py = y + r * Math.sin(angle);
+    i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+  }
   ctx.closePath();
-  ctx.strokeStyle = "blue";
-  ctx.lineWidth = 3;
+  ctx.strokeStyle = 'green';
+  ctx.lineWidth = 2;
+  ctx.shadowColor = '#000';
+  ctx.shadowBlur = 5;
+  ctx.shadowOffsetX = 3;
+  ctx.shadowOffsetY = 3;
   ctx.stroke();
 }
 
+// --- tool state + toolbar wiring ---
+let currentTool = 'square'; // default
 
+const toolbar = document.getElementById('shapeToolbar');
+toolbar.addEventListener('click', (e) => {
+  const btn = e.target.closest('.shape_button');
+  if (!btn) return;
 
+  currentTool = btn.dataset.shape;          // e.g., "circle", "square", ...
+  // update active styles
+  toolbar.querySelectorAll('.shape_button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+});
 
+// --- canvas click draws the current tool ---
+c.addEventListener('click', (e) => {
+  const { x, y } = getCanvasPos(e);
+
+  switch (currentTool) {
+    case 'circle':   drawCircleAt(x, y);   break;
+    case 'square':   drawSquareAt(x, y);   break;
+    case 'triangle': drawTriangleAt(x, y); break;
+    case 'hexagon':  drawHexagonAt(x, y);  break;
+    default:         drawSquareAt(x, y);
+  }
+});
 
 
 
